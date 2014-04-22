@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	template="/WEB-INF/templates/BasicInsideTemplate.xhtml">
+	<h:form>
+		<p:accordionPanel multiple="true">
+			<p:tab title="Aktuelle Schadensmeldungen">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:graphicImage value="/images/godfather/godfather1.jpg" />
+
+
+					<p:dataTable var="car" value="#{tableBean.carsSmall}">
+						<p:column headerText="Seriennummer">
+							<h:outputText value="#{car.model}" />
+						</p:column>
+
+						<p:column headerText="Datum">
+							<h:outputText value="#{car.year}" />
+						</p:column>
+
+						<p:column headerText="ZUB">
+							<h:outputText value="#{car.manufacturer}" />
+						</p:column>
+
+						<p:column headerText="Bemerkung">
+							<h:outputText value="#{car.color}" />
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			<p:tab title="Aktuelle Gerätebewegungen">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:dataTable var="bewegung" value="#{tableBean1.bewegungSmall}">
+						<p:column headerText="Seriennummer">
+							<h:outputText value="#{bewegung.model}" />
+						</p:column>
+
+						<p:column headerText="Datum">
+							<h:outputText value="#{bewegung.year}" />
+						</p:column>
+
+						<p:column headerText="Quelle">
+							<h:outputText value="#{bewegung.quelle}" />
+						</p:column>
+
+						<p:column headerText="Ziel">
+							<h:outputText value="#{bewegung.ziel}" />
+						</p:column>
+
+						<p:column headerText="Zustand">
+							<h:outputText value="#{bewegung.zustand}" />
+						</p:column>
+					</p:dataTable>
+
+				</h:panelGrid>
+			</p:tab>
+			<p:tab title="Gesperrte Geräte">
+				<h:panelGrid columns="2" cellpadding="10">
+					<p:graphicImage value="/images/godfather/godfather3.jpg" />
+					<h:outputText
+						value="After a break of more than 15 years, director Francis Ford Coppola and writer Mario Puzo returned to the well for this third and final story of the fictional Corleone crime family.   
+                Two decades have passed, and crime kingpin Michael Corleone, now divorced from his wife Kay has nearly succeeded in keeping his promise that his family would one day be completely legitimate." />
+				</h:panelGrid>
+			</p:tab>
+		</p:accordionPanel>
+
+	</h:form>
+</ui:composition>

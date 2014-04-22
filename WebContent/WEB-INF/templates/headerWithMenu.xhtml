@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<h:body>
+	<div
+		style="width: 100%; font-size: 36px; line-height: 48px; background-color: red; color: white">ÖBB
+		Personenverkehr AG - Geräte Management</div>
+	<h:form>
+		<p:tabMenu activeIndex="#{contextBean.contextIndex}">
+			<p:menuitem value="Überblick" action="#{contextBean.getNextUrl(0)}"
+				icon="ui-icon-star" />
+			<p:menuitem value="Geräte" action="#{contextBean.getNextUrl(1)}"
+				icon="ui-icon-document" />
+			<p:menuitem value="SIM Karten" action="#{contextBean.getNextUrl(2)}"
+				icon="ui-icon-document" />
+			<p:menuitem value="SD Karten" action="#{contextBean.getNextUrl(3)}"
+				icon="ui-icon-document" />
+			<p:menuitem value="Servicestellen" action="#{contextBean.getNextUrl(4)}"
+				icon="ui-icon-document" />
+			<p:menuitem value="BO" action="#{contextBean.getNextUrl(5)}"
+				icon="ui-icon-document" />
+			<p:menuitem value="Schadensmeldungen" action="#{contextBean.getNextUrl(6)}"
+				icon="ui-icon-document" />
+			<p:menuitem value="Personalverwaltung" action="#{contextBean.getNextUrl(7)}"
+				icon="ui-icon-person" />
+			<p:menuitem value="Einstellungen" action="#{contextBean.getNextUrl(8)}"
+				icon="ui-icon-wrench" />
+		</p:tabMenu>
+	</h:form>
+</h:body>
+</html>

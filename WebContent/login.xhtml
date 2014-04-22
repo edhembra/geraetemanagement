@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	template="/WEB-INF/templates/BasicTemplate.xhtml">
+	<h:form>
+
+		<p:panel id="panel" header="New Person">
+
+			<p:messages id="msgs" />
+
+			<h:panelGrid columns="3">
+				<h:outputLabel for="name" value="Name: " />
+				<p:inputText id="name" value="#{loginBean.name}" required="true"
+					label="name">
+					<f:validateLength minimum="2" />
+				</p:inputText>
+				<p:message for="name" display="icon" />
+
+				<h:outputLabel for="passwort" value="Passowrt: " />
+				<p:inputText id="passwort" type="password" value="#{loginBean.password}"
+					label="passwort" required="true">
+					<f:validateLength minimum="2" />
+					<p:ajax update="msgPasswort" event="keyup" />
+				</p:inputText>
+				<p:message for="passwort" id="msgPasswort" display="icon" />
+
+			</h:panelGrid>
+
+			<h:commandButton value="Login" action="login"></h:commandButton>
+		</p:panel>
+
+
+	</h:form>
+</ui:composition>

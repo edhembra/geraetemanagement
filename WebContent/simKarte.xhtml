@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	template="/WEB-INF/templates/BasicInsideTemplate.xhtml">
+	<h:form>
+	<div class="entry">
+		<span class="ui-button-text ui-c"> <p:commandButton
+				value="Neues SIM Karte anlegen"></p:commandButton>
+		</span>
+		<span class="ui-button-text ui-c"> <p:commandButton
+				value="SIM Karte bearbeiten"></p:commandButton>
+
+		</span>
+		<span class="ui-button-text ui-c"><p:commandButton
+				value="SIM Karte löschen"></p:commandButton> </span>
+		<h3></h3>
+		<p:dataTable var="simKarte" value="#{simTableBean.simKarteSmall}"
+			widgetVar="simKarteTable" emptyMessage="Keine simKarte gefunden!"
+			filteredValue="#{simTableBean.filteredSimKarte}">
+
+			<f:facet name="header">
+				<p:outputPanel>
+					<h:outputText value="Alle Spalte durchsuchen:" />
+					<p:inputText id="globalFilter" onkeyup="simKarteTable.filter()"
+						style="width:150px" />
+				</p:outputPanel>
+			</f:facet>
+
+			<p:column id="seriennummerModelColumn" headerText="Seriennummer"
+				filterBy="seriennummer" sortBy="seriennummer"
+				filterMatchMode="contains">
+				<h:outputText value="#{simKarte.seriennummer}" />
+			</p:column>
+
+			<p:column id="rufnummerModelColumn" headerText="Rufnummer"
+				filterBy="rufnummer" sortBy="rufnummer" filterMatchMode="contains">
+				<h:outputText value="#{simKarte.rufnummer}" />
+			</p:column>
+			<p:column id="personalnummerModelColumn" headerText="Personalnummer"
+				filterBy="personalnummer" sortBy="personalnummer"
+				filterMatchMode="contains">
+				<h:outputText value="#{simKarte.personalnummer}" />
+			</p:column>
+			<p:column id="personalnameModelColumn" headerText="Personalname"
+				filterBy="personalname" sortBy="personalname"
+				filterMatchMode="contains">
+				<h:outputText value="#{simKarte.personalname}" />
+			</p:column>
+			<p:column id="zugewiesenesGeraetModelColumn"
+				headerText="Zugewiesenes Gerät" filterBy="zugewiesenesGeraet"
+				sortBy="zugewiesenesGeraet" filterMatchMode="contains">
+				<h:outputText value="#{simKarte.zugewiesenesGeraet}" />
+			</p:column>
+			<p:column id="lastUpdatedModelColumn" headerText="lastUpdated"
+				filterBy="lastUpdated" sortBy="lastUpdated" filterMatchMode="exact">
+				<h:outputText value="#{simKarte.lastUpdated}">
+					<f:convertDateTime pattern="MM/dd/yyyy hh:mm a" />
+				</h:outputText>
+			</p:column>
+
+
+
+		</p:dataTable>
+		</div>
+
+	</h:form>
+</ui:composition>
